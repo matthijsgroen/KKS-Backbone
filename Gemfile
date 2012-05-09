@@ -39,17 +39,18 @@ gem 'jquery-rails'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :assets do
-  gem "haml_coffee_assets"
+  gem 'haml_coffee_assets'
 end
 
 group :assets, :development do
-  gem "rails-backbone"
+  gem 'rails-backbone'
 end
 
-gem "haml-rails"
-gem "draper"
+gem 'haml-rails'
+gem 'draper'
 group :test, :development do
-  gem "konacha"
-  gem "capybara-webkit"
-  gem "rspec-rails"
+  gem 'konacha'
+  gem 'capybara-webkit'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
 end
