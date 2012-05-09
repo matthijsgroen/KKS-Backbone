@@ -7,4 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 require 'factory_girl'
-20.times { Factory.create :shipment }
+20.times { FactoryGirl.create :shipment }

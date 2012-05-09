@@ -9,3 +9,5 @@ window.KKSBackbone =
   Collections: {}
   Routers: {}
   Views: {}
+
+  shipments: new Backbone.Collection
