@@ -1,0 +1,9 @@
+%thead
+  %tr
+    %th ID
+    %th Arrival time
+    %th Destination
+    %th Ship class
+    %th Origin
+    %th Status
+%tbody

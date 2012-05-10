@@ -40,6 +40,7 @@ gem 'jquery-rails'
 
 group :assets do
   gem 'haml_coffee_assets'
+  gem 'execjs'
 end
 
 group :assets, :development do

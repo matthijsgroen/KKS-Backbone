@@ -175,6 +175,7 @@ DEPENDENCIES
   capybara-webkit
   coffee-rails (~> 3.2.1)
   draper
+  execjs
   factory_girl_rails
   haml-rails
   haml_coffee_assets
