@@ -6,6 +6,9 @@ class KKSBackbone.Views.ShipmentRowView extends Backbone.View
   events:
     'dblclick': 'edit'
 
+  initialize: ->
+    @model.on 'change', => @render()
+
   render: ->
     @$el.html @template { @model }
     @$el.disableSelection()
