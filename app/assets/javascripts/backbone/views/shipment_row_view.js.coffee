@@ -15,6 +15,6 @@ class KKSBackbone.Views.ShipmentRowView extends Backbone.View
     this
 
   edit: ->
-    alert "opening #{@model.get('id_code')}"
+    Backbone.history.navigate("shipments/#{@model.get('id_code')}/edit", trigger: yes)
 
 

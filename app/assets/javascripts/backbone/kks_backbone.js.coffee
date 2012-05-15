@@ -1,4 +1,5 @@
 #= require_self
+#= require ./models/application
 #= require hamlcoffee
 #= require_tree ./templates
 #= require_tree ./models
@@ -14,4 +15,5 @@ window.KKSBackbone =
   shipments: new Backbone.Collection
 
 $ ->
-  $('.js-shipments').append new KKSBackbone.Views.ShipmentListView(model: KKSBackbone.shipments).render().el
+  KKSBackbone.app.initialize()
+
