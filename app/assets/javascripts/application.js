@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery-ui
 //= require jquery_ujs
+//= require ./lib/jquery.timeago
 //= require bootstrap
 //= require i18n
 //= require i18n/translations
@@ -21,4 +22,3 @@
 //= require backbone_rails_sync
 //= require backbone_datalink
 //= require backbone/kks_backbone
-//= require_tree .

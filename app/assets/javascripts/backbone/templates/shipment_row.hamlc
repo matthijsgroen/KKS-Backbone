@@ -1,5 +1,6 @@
 %td= @model.get('id_code')
-%td= @model.get('arrival_time')
+%td
+  %time.timeago{ datetime: @model.get('arrival_time') }= @model.get('arrival_time')
 %td= @model.get('destination_port')
 %td= @model.get('freighter_type')
 %td= @model.get('origin_port')

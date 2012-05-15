@@ -1,15 +1,22 @@
 .modal-header
-  %button.close{ :'data-dismiss' => 'modal' } &times;
-  %h3 Modal dialog
+  %button.js-close.close{ :'data-dismiss' => 'modal' } &times;
+  %h3
+    - if @model.isNew()
+      Create new shipment
+    - else
+      Editing shipment
+      = @model.get 'id_code'
 
 .modal-body
   %form.form-horizontal
     %fieldset
-      .control-group
-        %label.control-label{ for: 'shipment_id_code' }= I18n.t @model.human_name('id_code')
-        .controls
-          %input.input-xlarge#shipment_id_code{ name: 'id_code' }
+      - for field in ['id_code', 'arrival_time', 'destination_port', 'origin_port', 'freighter_type']
+        - fieldId = "shipment_#{field}"
+        .control-group
+          %label.control-label{ for: fieldId }= @model.human_name(field)
+          .controls
+            %input.input-xlarge{ id: fieldId, name: field, value: @model.get(field) }
 
 .modal-footer
-  %a.btn{ href: '#' } Close
-  %a.btn.btn-primary{ href: '#' } Save Changes
+  %a.btn.js-close{ href: '#' } Close
+  %a.btn.js-save.btn-primary{ href: '#' } Save Changes

@@ -12,6 +12,7 @@ class KKSBackbone.Views.ShipmentRowView extends Backbone.View
   render: ->
     @$el.html @template { @model }
     @$el.disableSelection()
+    @$('.timeago').timeago(allowFuture: yes)
     this
 
   edit: ->

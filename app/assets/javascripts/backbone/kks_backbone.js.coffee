@@ -12,8 +12,21 @@ window.KKSBackbone =
   Routers: {}
   Views: {}
 
-  shipments: new Backbone.Collection
-
 $ ->
+  KKSBackbone.app.on 'application:setup', (app) ->
+    app.shipments = new app.Collections.ShipmentCollection
+
   KKSBackbone.app.initialize()
+
+  # convert hard links to backbone navigation
+  $('body').on 'click', 'a', (event) ->
+    url = $(this).attr('href')
+    if url[0] is '/'
+      Backbone.history.navigate url, trigger: yes
+      event.preventDefault()
+      false
+
+  jQuery.timeago.settings.allowFuture = yes
+  $('time.timeago').timeago()
+
 

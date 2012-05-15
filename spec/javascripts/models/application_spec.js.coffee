@@ -8,8 +8,8 @@ describe 'Application', ->
 
   describe 'initialization', ->
 
-    it 'calls all callbacks set by onInitialize', ->
-      callback = sinon.spy()
-      model.onInitialize callback
-      model.initialize()
-      callback.should.have.been.called.exactly(1).time
+    it 'triggers an initialize event', ->
+      model.should.trigger('application:initialize').when -> model.initialize()
+
+    it 'triggers an setup event', ->
+      model.should.trigger('application:setup').when -> model.initialize()

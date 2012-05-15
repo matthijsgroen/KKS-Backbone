@@ -1,4 +1,6 @@
 KKSBackbone::Application.routes.draw do
+  resources :tests
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -47,7 +49,7 @@ KKSBackbone::Application.routes.draw do
   #   end
 
   namespace :api do
-    resources :shipments, only: :index
+    resources :shipments
   end
 
   # You can have the root of your site routed with "root"

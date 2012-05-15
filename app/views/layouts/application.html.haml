@@ -23,15 +23,15 @@
           .page-header
             %h1
               Shipment overview
-              %small cargofreights arriving for Rotterdam
+              %small cargofreights arriving for all ports
 
       .row
         .span9.js-shipments
 
         .span3
           .row-fluid.action-space
-            %button.btn.btn-large.btn-primary Plan Shipment
 
+            %a.btn.btn-large.btn-primary{ href: '/shipments/new' } Plan Shipment
           %h3 Status
           .row-fluid
             .well
