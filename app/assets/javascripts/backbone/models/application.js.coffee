@@ -9,7 +9,7 @@ class KKSBackbone.Models.Application extends Backbone.Events
 
   initialize: ->
     initialize() for initialize in @initializers
-    Backbone.history?.start(pushState: yes)
+    Backbone.history?.start(pushState: yes) unless Backbone.History.started
 
 
 KKSBackbone.app = new KKSBackbone.Models.Application
