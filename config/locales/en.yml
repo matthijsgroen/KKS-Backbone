@@ -3,3 +3,9 @@
 
 en:
   hello: "Hello world"
+
+  activerecord:
+    models:
+      attributes:
+        shipment:
+          id_code: "ID"

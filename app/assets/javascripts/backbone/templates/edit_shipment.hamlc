@@ -1,0 +1,15 @@
+.modal-header
+  %button.close{ :'data-dismiss' => 'modal' } &times;
+  %h3 Modal dialog
+
+.modal-body
+  %form.form-horizontal
+    %fieldset
+      .control-group
+        %label.control-label{ for: 'shipment_id_code' }= I18n.t @model.human_name('id_code')
+        .controls
+          %input.input-xlarge#shipment_id_code{ name: 'id_code' }
+
+.modal-footer
+  %a.btn{ href: '#' } Close
+  %a.btn.btn-primary{ href: '#' } Save Changes

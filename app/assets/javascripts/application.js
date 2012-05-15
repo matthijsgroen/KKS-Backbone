@@ -13,6 +13,9 @@
 //= require jquery
 //= require jquery-ui
 //= require jquery_ujs
+//= require bootstrap
+//= require i18n
+//= require i18n/translations
 //= require underscore
 //= require backbone
 //= require backbone_rails_sync
