@@ -2,11 +2,14 @@
 class KKSBackbone.Views.CollectionView extends Backbone.View
 
   initialize: ->
+    @filter = {}
     @_itemViews = []
     @_buildItemView model for model in @model.models
 
     @model.on 'reset', (collection) => @_resetItemViews collection
-    @model.on 'add', (model) => @trigger 'addItemView', @_buildItemView(model)
+    @model.on 'add', (model) =>
+      view = @_buildItemView(model)
+      @trigger('addItemView', view) if @matchFilter(model)
     @model.on 'remove', (model) => @_removeViewForModel model
 
   _removeViewForModel: (model) ->
@@ -34,6 +37,12 @@ class KKSBackbone.Views.CollectionView extends Backbone.View
     @_buildItemView model for model in collection.models
     @render()
 
-  renderItems: ->
-    itemView.render().el for itemView in @_itemViews
+  renderItems: (element) ->
+    for itemView in @_itemViews when @matchFilter(itemView.model)
+      @$(element).append(itemView.render().el)
+      itemView.delegateEvents()
+
+  matchFilter: (model) ->
+    return no for field, value of @filter when (model.get(field) isnt value) and value?
+    yes
 

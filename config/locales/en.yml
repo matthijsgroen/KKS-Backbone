@@ -11,3 +11,9 @@ en:
           destination_port: 'Destination'
           origin_port: 'Origin'
           freighter_type: 'Freighter Type'
+
+  shipments:
+    filter:
+      line: "cargofreights arriving for "
+      port: "%{port}"
+      no_port: 'all ports'

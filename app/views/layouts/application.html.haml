@@ -23,7 +23,11 @@
           .page-header
             %h1
               Shipment overview
-              %small cargofreights arriving for all ports
+              %small
+                = t 'shipments.filter.line'
+                .dropdown.js-filter.filter
+                  %span.btn.dropdown-toggle{ :'data-toggle' => 'dropdown' }= t 'shipments.filter.no_port'
+                  %ul.dropdown-menu
 
       .row
         .span9.js-shipments

@@ -12,10 +12,17 @@ class KKSBackbone.Views.ShipmentListView extends KKSBackbone.Views.CollectionVie
 
   initialize: ->
     super
+    @filter =
+      destination_port: null
     @on 'addItemView', (itemView) -> @$('tbody').append itemView.render().el
+
+  filterDestination: (destination) ->
+    @filter.destination_port = destination
+    @trigger 'filter:change', @filter
+    @render()
 
   render: ->
     @$el.html @template()
-    @$('tbody').append @renderItems()
+    @renderItems('tbody')
     this
 

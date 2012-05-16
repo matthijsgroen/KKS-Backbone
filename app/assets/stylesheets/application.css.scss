@@ -7,3 +7,11 @@ body {
 .action-space {
   padding: 1em;
 }
+
+.filter {
+  display: inline;
+  ul {
+    font-size: $baseFontSize;
+    line-height: $baseLineHeight;
+  }
+}

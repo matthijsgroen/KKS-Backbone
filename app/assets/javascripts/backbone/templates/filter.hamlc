@@ -1,0 +1,9 @@
+%li
+  %a{ href: '/shipments' } All
+%li.divider
+- for item in @items
+  - link = "/shipments/#{item}"
+  %li
+    %a{ href: link }= item
+
+

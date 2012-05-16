@@ -4,7 +4,7 @@ class KKSBackbone.Views.ShipmentRowView extends Backbone.View
   tagName: 'tr'
   template: JST['backbone/templates/shipment_row']
   events:
-    'dblclick': 'edit'
+    'dblclick td': 'edit'
 
   initialize: ->
     @model.on 'change', => @render()
