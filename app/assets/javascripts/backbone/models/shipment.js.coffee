@@ -7,6 +7,9 @@ class KKSBackbone.Models.Shipment extends KKSBackbone.Models.ActiveModel
     delete json['id']
     { 'shipment': json }
 
+  initialize: ->
+    @on 'change:state', => @collection.sort()
+
 class KKSBackbone.Collections.ShipmentCollection extends Backbone.Collection
   model: KKSBackbone.Models.Shipment
   url: '/api/shipments'

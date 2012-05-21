@@ -16,3 +16,18 @@ body {
   }
 }
 
+table {
+  tr {
+    td {
+      -webkit-transition: 10s ease background-color;
+    }
+    &.warning {
+      &:nth-child(odd) td {
+        background-color: #f80 !important;
+      }
+      &:nth-child(even)td {
+        background-color: #f70 !important;
+      }
+    }
+  }
+}
