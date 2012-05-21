@@ -18,7 +18,7 @@ describe Api::ShipmentsController do
 
       context 'first item' do
         subject { json_result.first }
-        its(:keys) { should =~ %w(id id_code arrival_time destination_port origin_port freighter_type) }
+        its(:keys) { should =~ %w(id id_code arrival_time destination_port origin_port freighter_type state) }
       end
     end
   end

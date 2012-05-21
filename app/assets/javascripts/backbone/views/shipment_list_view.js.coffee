@@ -15,6 +15,7 @@ class KKSBackbone.Views.ShipmentListView extends KKSBackbone.Views.CollectionVie
     @filter =
       destination_port: null
     @on 'addItemView', (itemView) -> @$('tbody').append itemView.render().el
+    setInterval((=> itemView.updateTime() for itemView in @_itemViews), 1000)
 
   filterDestination: (destination) ->
     @filter.destination_port = destination
@@ -23,6 +24,6 @@ class KKSBackbone.Views.ShipmentListView extends KKSBackbone.Views.CollectionVie
 
   render: ->
     @$el.html @template()
-    @renderItems('tbody')
+    @renderItems('tbody', 20)
     this
 

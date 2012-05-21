@@ -4,4 +4,4 @@
 %td= @model.get('destination_port')
 %td= @model.get('freighter_type')
 %td= @model.get('origin_port')
-%td Unknown
+%td.js-ship-state= I18n.t "shipments.state.#{@model.get('state')}"

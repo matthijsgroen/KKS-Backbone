@@ -17,3 +17,8 @@ en:
       line: "cargofreights arriving for "
       port: "%{port}"
       no_port: 'all ports'
+    state:
+      docked: 'docked'
+      parked: 'parked'
+      unknown: 'unknown'
+

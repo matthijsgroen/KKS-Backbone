@@ -27,6 +27,8 @@ $ ->
       false
 
   jQuery.timeago.settings.allowFuture = yes
+  jQuery.timeago.settings.strings.seconds = "%d seconds"
+  jQuery.timeago.settings.refreshMillis = 0
   $('time.timeago').timeago()
 
 
