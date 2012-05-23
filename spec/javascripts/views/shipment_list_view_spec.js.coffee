@@ -7,7 +7,7 @@ describe 'ShipmentListView', ->
   dom = null
 
   beforeEach ->
-    collection = new Backbone.Collection
+    collection = new KKSBackbone.Collections.ShipmentCollection
     collection.reset [{
       id: '1'
       id_code: 'KKS-1'

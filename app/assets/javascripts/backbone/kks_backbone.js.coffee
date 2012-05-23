@@ -16,7 +16,8 @@ $ ->
   KKSBackbone.app.on 'application:setup', (app) ->
     app.shipments = new app.Collections.ShipmentCollection
   KKSBackbone.app.on 'application:initialize', (app) ->
-    app.juggernaut = new Juggernaut
+    return unless Juggernaut?
+    app.juggernaut = new Juggernaut port: 3400
     app.juggernaut.subscribe 'shipments', (data) ->
       switch data.action
         when 'create'
