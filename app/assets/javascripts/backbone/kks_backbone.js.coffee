@@ -11,11 +11,27 @@ window.KKSBackbone =
   Collections: {}
   Routers: {}
   Views: {}
-  juggernaut: new Juggernaut
 
 $ ->
   KKSBackbone.app.on 'application:setup', (app) ->
     app.shipments = new app.Collections.ShipmentCollection
+  KKSBackbone.app.on 'application:initialize', (app) ->
+    app.juggernaut = new Juggernaut
+    app.juggernaut.subscribe 'shipments', (data) ->
+      switch data.action
+        when 'create'
+          model = app.shipments.get(data.record.id)
+          if model?
+            model.set data.record
+          else
+            app.shipments.create data.record
+        when 'update'
+          model = app.shipments.get(data.record.id)
+          model.set data.record
+        when 'destroy'
+          app.shipments.remove data.record
+
+    console.log 'subscribed to :shipments'
 
   KKSBackbone.app.initialize()
 

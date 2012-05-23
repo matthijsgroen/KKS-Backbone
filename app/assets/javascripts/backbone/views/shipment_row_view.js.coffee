@@ -8,7 +8,9 @@ class KKSBackbone.Views.ShipmentRowView extends Backbone.View
     'click td.js-ship-state': 'selectState'
 
   initialize: ->
-    @model.on 'change', (-> @render()), this
+    @model.on 'change', (->
+      @render()
+    ), this
 
   render: ->
     @$el.html @template { @model }
