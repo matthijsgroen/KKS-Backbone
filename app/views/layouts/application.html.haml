@@ -3,7 +3,7 @@
   %head
     %title Shipments control
     = stylesheet_link_tag 'application', media: 'all'
-    = javascript_include_tag 'http://localhost:8080/application.js', 'application'
+    = javascript_include_tag "http://#{request.host}:8080/application.js", 'application'
     = csrf_meta_tags
 
   %body
