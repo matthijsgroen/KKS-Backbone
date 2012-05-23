@@ -8,7 +8,7 @@ class KKSBackbone.Views.ShipmentStatusView extends Backbone.View
 
   render: ->
     filter = {}
-    filter['destination'] = @filter if @filter?
+    filter = _.clone @filter if @filter?.destination_port?
     for status in ['arriving', 'arrived', 'sunk']
       $(".js-#{status}").text(@collection.where(_.extend({ status }, filter)).length)
     this
