@@ -31,6 +31,7 @@ $ ->
           model.set data.record
         when 'destroy'
           app.shipments.remove data.record
+      app.shipments.sort()
 
     console.log 'subscribed to :shipments'
 

@@ -40,7 +40,8 @@ class KKSBackbone.Routers.ShipmentsRouter extends Backbone.Router
       if model.collection
         model.save()
       else
-        @shipments.create model
+        model.collection = @shipments
+        model.save()
 
 KKSBackbone.app.on 'application:initialize', ->
   new KKSBackbone.Routers.ShipmentsRouter(shipments: KKSBackbone.shipments)
