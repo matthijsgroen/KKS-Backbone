@@ -11,6 +11,7 @@ window.KKSBackbone =
   Collections: {}
   Routers: {}
   Views: {}
+  juggernaut: new Juggernaut
 
 $ ->
   KKSBackbone.app.on 'application:setup', (app) ->

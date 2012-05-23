@@ -2,20 +2,20 @@
 %html
   %head
     %title Shipments control
-    = stylesheet_link_tag "application", media: "all"
-    = javascript_include_tag "application"
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_include_tag 'http://localhost:8080/application.js', 'application'
     = csrf_meta_tags
 
   %body
     .navbar.navbar-fixed-top
       .navbar-inner
         .container
-          %a.brand{ href: "/" } Shipment Control
+          %a.brand{ href: '/' } Shipment Control
           %ul.nav
             %li
-              %a{ href: "/" } Overview
+              %a{ href: '/' } Overview
             %li.active
-              %a{ href: "/shipments" } Shipments
+              %a{ href: '/shipments' } Shipments
 
     .container
       .row
