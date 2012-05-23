@@ -12,4 +12,12 @@ Clean installation
 
 This sets up a blank rails application using Rspec, Konacha, Backbone and HAML-Coffeescript JST templates.
 
+Juggernaut
+==========
+
+To enjoy websocket functionality, we use Juggernaut. Installation
+instructions can be found on: https://github.com/maccman/juggernaut/blob/master/README.md
+
+start juggernaut using the --port 3400 option.
+
 
