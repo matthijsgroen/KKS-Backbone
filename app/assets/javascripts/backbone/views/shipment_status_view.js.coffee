@@ -9,6 +9,9 @@ class KKSBackbone.Views.ShipmentStatusView extends Backbone.View
   render: ->
     filter = {}
     filter = _.clone @filter if @filter?.destination_port?
+    over10Minutes = (new Date().getTime()) + (10 * 60 * 1000)
     for status in ['arriving', 'arrived', 'sunk']
-      $(".js-#{status}").text(@collection.where(_.extend({ status }, filter)).length)
+      filtered = @collection.where(_.extend({ status }, filter))
+      filtered = filtered.filter((item) -> item.arrivalTime().getTime() < over10Minutes) if status is 'arriving'
+      $(".js-#{status}").text(filtered.length)
     this

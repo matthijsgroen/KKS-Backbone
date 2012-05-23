@@ -17,8 +17,7 @@ class KKSBackbone.Views.ShipmentRowView extends Backbone.View
     this
 
   updateTime: ->
-    date = $.timeago.parse(@model.get('arrival_time'))
-    distance = (new Date().getTime() - date.getTime())
+    distance = (new Date().getTime() - @model.arrivalTime().getTime())
     state = @model.calculateStatus()
     if state is 'arriving'
       @$('.timeago').text($.timeago.inWords distance)

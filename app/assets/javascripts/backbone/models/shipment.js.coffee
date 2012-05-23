@@ -10,6 +10,9 @@ class KKSBackbone.Models.Shipment extends KKSBackbone.Models.ActiveModel
   initialize: ->
     @on 'change:state', => @collection.sort()
 
+    # clear Date object cache
+    @on 'change:arrival_time', (-> @arrivalTimeCache = null), this
+
   calculateStatus: ->
     date = $.timeago.parse(@get('arrival_time'))
     distance = (new Date().getTime() - date.getTime())
@@ -21,6 +24,9 @@ class KKSBackbone.Models.Shipment extends KKSBackbone.Models.ActiveModel
     else
       @set(status: 'arriving')
     @get('status')
+
+  arrivalTime: ->
+    @arrivalTimeCache ||= $.timeago.parse(@get('arrival_time'))
 
 class KKSBackbone.Collections.ShipmentCollection extends Backbone.Collection
   model: KKSBackbone.Models.Shipment
