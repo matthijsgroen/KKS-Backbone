@@ -10,6 +10,18 @@ class KKSBackbone.Models.Shipment extends KKSBackbone.Models.ActiveModel
   initialize: ->
     @on 'change:state', => @collection.sort()
 
+  calculateStatus: ->
+    date = $.timeago.parse(@get('arrival_time'))
+    distance = (new Date().getTime() - date.getTime())
+    if distance > 0
+      if @get('state') is 'unknown'
+        @set(status: 'sunk')
+      else
+        @set(status: 'arrived')
+    else
+      @set(status: 'arriving')
+    @get('status')
+
 class KKSBackbone.Collections.ShipmentCollection extends Backbone.Collection
   model: KKSBackbone.Models.Shipment
   url: '/api/shipments'

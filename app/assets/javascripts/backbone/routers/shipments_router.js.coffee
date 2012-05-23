@@ -11,6 +11,7 @@ class KKSBackbone.Routers.ShipmentsRouter extends Backbone.Router
     # initialize our list view. We can do this directly now since we are the only screen rendered
     @listView = new KKSBackbone.Views.ShipmentListView(model: @shipments)
     @filterView = new KKSBackbone.Views.ShipmentFilterView(el: $('.js-filter')[0], model: @listView)
+    @statusView = new KKSBackbone.Views.ShipmentStatusView(model: @listView)
     $('.js-shipments').append @listView.render().el
 
   editShipment: (id_code) ->

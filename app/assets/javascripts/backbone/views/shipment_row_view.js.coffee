@@ -8,7 +8,7 @@ class KKSBackbone.Views.ShipmentRowView extends Backbone.View
     'click td.js-ship-state': 'selectState'
 
   initialize: ->
-    @model.on 'change', => @render()
+    @model.on 'change', (-> @render()), this
 
   render: ->
     @$el.html @template { @model }
@@ -19,15 +19,13 @@ class KKSBackbone.Views.ShipmentRowView extends Backbone.View
   updateTime: ->
     date = $.timeago.parse(@model.get('arrival_time'))
     distance = (new Date().getTime() - date.getTime())
-    if distance > 0
-      @$el.removeClass 'warning'
-      if @model.get('state') is 'unknown'
-        @$('.timeago').text('sunk')
-      else
-        @$('.timeago').text('arrived')
-    else
+    state = @model.calculateStatus()
+    if state is 'arriving'
       @$('.timeago').text($.timeago.inWords distance)
       @$el.addClass('warning') if distance > -60000
+    else
+      @$el.removeClass 'warning'
+      @$('.timeago').text(state)
 
   edit: ->
     Backbone.history.navigate("shipments/#{@model.get('id_code')}/edit", trigger: yes)

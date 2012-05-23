@@ -41,11 +41,14 @@
             .well
               %p
                 Arriving
-                %span.badge 5
-                next hour
+                %span.badge.js-arriving 5
+                next 10 minutes
               %p
-                %span.badge.badge-success 10
-                docks available
+                %span.badge.badge-success.js-arrived 10
+                ships arrived
+              %p
+                %span.badge.badge-error.js-sunk 10
+                ships sunk
 
     = yield
 

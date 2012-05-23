@@ -5,9 +5,10 @@ class KKSBackbone.Views.ShipmentFilterView extends Backbone.View
 
   initialize: ->
     @collection = @model.model
-    @model.on 'filter:change', (filter) =>
+    @collection.on 'change add remove', (-> @render()), this
+    @model.on 'filter:change', ((filter) ->
       @destination = filter.destination_port
-      @render()
+      @render()), this
 
   render: ->
     if @destination?
